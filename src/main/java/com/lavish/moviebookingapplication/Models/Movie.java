@@ -1,0 +1,25 @@
+package com.lavish.moviebookingapplication.Models;
+
+import jakarta.persistence.*;
+import lombok.Data;
+
+import java.time.LocalDate;
+import java.util.List;
+
+@Entity
+@Data
+public class Movie {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    private String description;
+    private String genre;
+    private String language;
+    private LocalDate releaseDate;
+    private Integer duration;
+
+    @OneToMany(mappedBy = "movie", fetch = FetchType.LAZY)
+    private List<Show> show;
+}
