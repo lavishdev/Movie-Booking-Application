@@ -1,7 +1,12 @@
 package com.lavish.moviebookingapplication.Models;
 
+import java.util.List;
+
 public enum BookingStatus {
     CONFIRMED,
     PENDING,
-    CANCELLED
+    CANCELLED;
+
+    public List<Booking> getBookingByStatus(BookingStatus bookingStatus) {
+    }
 }
