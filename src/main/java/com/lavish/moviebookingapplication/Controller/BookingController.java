@@ -22,12 +22,12 @@ public class BookingController {
     }
 
     @GetMapping("/getuserbooking/{id}")
-    public ResponseEntity<Booking> getUserBookings(@PathVariable Long id){
+    public ResponseEntity<List<Booking>> getUserBookings(@PathVariable Long id){
         return ResponseEntity.ok(bookingService.getUserBooking(id));
     }
 
     @GetMapping("/getshowbooking/{id}")
-    public ResponseEntity<Booking> getShowBookings(@PathVariable Long id){
+    public ResponseEntity<List<Booking>> getShowBookings(@PathVariable Long id){
         return ResponseEntity.ok(bookingService.getShowBooking(id));
     }
 
