@@ -7,6 +7,7 @@ import jakarta.annotation.PostConstruct;
 import jakarta.persistence.Entity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class ShowController {
     private ShowService showService;
 
     @PostMapping("/createshow")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Show> createShow(@RequestBody Showdto showdto) {
         return ResponseEntity.ok(showService.createShow(showdto));
     }
@@ -38,11 +40,13 @@ public class ShowController {
     }
 
     @PutMapping("/updateshow/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Show> updateShow(@PathVariable Long id, @RequestBody Showdto showdto) {
         return ResponseEntity.ok(showService.updateShow(id, showdto));
     }
 
     @DeleteMapping("/deleteshow/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> deleteShow(@PathVariable Long id) {
         showService.deleteShow(id);
         return ResponseEntity.ok().build();
