@@ -3,6 +3,7 @@ package com.lavish.moviebookingapplication.Services;
 import com.lavish.moviebookingapplication.DTOs.LoginRequestdto;
 import com.lavish.moviebookingapplication.DTOs.LoginResponsedto;
 import com.lavish.moviebookingapplication.DTOs.RegisterRequestdto;
+import com.lavish.moviebookingapplication.JWT.JwtService;
 import com.lavish.moviebookingapplication.Models.User;
 import com.lavish.moviebookingapplication.Repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class AuthenticationService {
     private AuthenticationManager authenticationManager;
 
     @Autowired
-    private JwtService  jwtService;
+    private JwtService jwtService;
 
     public User registerNormalUser(RegisterRequestdto registerRequestdto) {
         if(userRepo.findByUsername(registerRequestdto.getUsername()).isPresent()) {
