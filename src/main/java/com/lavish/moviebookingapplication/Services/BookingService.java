@@ -126,4 +126,7 @@ public class BookingService {
     }
 
 
+    public List<Booking> getBookingByStatus(BookingStatus bookingStatus) {
+        return bookingRepo.findByBookingStatus(bookingStatus);
+    }
 }

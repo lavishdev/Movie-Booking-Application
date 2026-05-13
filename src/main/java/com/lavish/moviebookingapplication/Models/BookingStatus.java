@@ -7,6 +7,5 @@ public enum BookingStatus {
     PENDING,
     CANCELLED;
 
-    public List<Booking> getBookingByStatus(BookingStatus bookingStatus) {
-    }
+
 }

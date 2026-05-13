@@ -42,7 +42,7 @@ public class AuthenticationService {
         user.setPassword(passwordEncoder.encode(registerRequestdto.getPassword()));
         user.setEmail(registerRequestdto.getEmail());
         user.setRoles(roles);
-        userRepo.save(user);
+        return userRepo.save(user);
     }
 
     public LoginResponsedto login(LoginRequestdto loginRequestdto) {
@@ -78,6 +78,6 @@ public class AuthenticationService {
         user.setPassword(passwordEncoder.encode(registerRequestdto.getPassword()));
         user.setEmail(registerRequestdto.getEmail());
         user.setRoles(roles);
-        userRepo.save(user);
+        return userRepo.save(user);
     }
 }

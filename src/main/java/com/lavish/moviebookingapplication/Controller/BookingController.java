@@ -44,7 +44,7 @@ public class BookingController {
 
     @GetMapping("/getbookingbystats/{bookingStatus}")
     public ResponseEntity<List<Booking>> getBookingByStatus(@PathVariable BookingStatus bookingStatus){
-        return  ResponseEntity.ok(bookingStatus.getBookingByStatus(bookingStatus));
+        return  ResponseEntity.ok(bookingService.getBookingByStatus(bookingStatus));
     }
 
 

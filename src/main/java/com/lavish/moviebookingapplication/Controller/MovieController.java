@@ -42,7 +42,7 @@ public class MovieController {
 
     @GetMapping("/getmoviesbytitle")
     public ResponseEntity<List<Movie>> getMoviestitle(@RequestParam String title) {
-        return ResponseEntity.ok(movieService.getMoviesBytitle(title);
+        return ResponseEntity.ok(movieService.getMoviesBytitle(title));
     }
 
     @PreAuthorize("hasRole('ADMIN')")
@@ -54,7 +54,7 @@ public class MovieController {
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("deletemovie/{id}")
     public ResponseEntity<Movie> deleteMovie(@PathVariable Long id) {
-        movieService.deleteMovie(id)
+        movieService.deleteMovie(id);
         return ResponseEntity.ok().build();
     }
 }
